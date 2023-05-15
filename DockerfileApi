@@ -1,0 +1,7 @@
+FROM ubuntu
+RUN apt update && apt install python3.10 -y && apt install python3-pip -y
+WORKDIR /api
+COPY api.py .
+COPY requirementsApi.txt .
+RUN pip3 install -r requirementsApi.txt
+CMD ["python3.10", "api.py"]
